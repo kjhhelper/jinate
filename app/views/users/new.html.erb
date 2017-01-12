@@ -1,0 +1,39 @@
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+<h1>Register</h1>
+<form action="/users" method="post">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  name <input type="text" name="user[name]" value=""><br>
+  email<input type="text" name="user[email]" value=""><br>
+  password<input type="text" name="user[password]" value=""><br>
+  <input type="submit" name="name" value="submit">
+</form>
+<br>
+
+<%if flash[:errors]%>
+<%flash[:errors].each do |a|%>
+<p><%=a%></p>
+<% end %>
+<% end %>
+
+<h1>Login</h1>
+<form action="/sessions" method="post">
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  email<input type="text" name="user[email]" value=""><br>
+  password<input type="text" name="user[password]"><br>
+  <input type="submit" name="name" value="submit">
+</form>
+
+
+<% if flash[:logerrors]%>
+<p><%=flash[:logerrors]%></p>
+<% end %>
