@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   get '/'=>'users#new'
-
+  # root 'users#new'
+  get '/events' => 'events#show'
+  post 'sessions' => 'sessions#create'
+  post 'users' => 'users#index'
   get '/index'=>'users#index'
-
 
 
   # get '/main'=> 'users#new'
